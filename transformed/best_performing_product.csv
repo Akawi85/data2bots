@@ -1,0 +1,2 @@
+ingestion_date,product_id,product_name,most_ordered_day,is_public_holiday,tt_review_points,pct_one_star_review,pct_two_star_review,pct_three_star_review,pct_four_star_review,pct_five_star_review,pct_late_shipment,pct_early_shipment
+2023-06-24,22,Scooter,2022-08-26,False,967.0,17.152,20.388,17.799,21.683,22.977,7.0,93.0
