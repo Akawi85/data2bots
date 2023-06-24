@@ -1,14 +1,14 @@
-# data_2_bots_de_assessment
+# Data2Bots Data Engineering Assessment
 
 The [`cleanup.ipynb`](https://github.com/Akawi85/data2bots/blob/main/cleanup.ipynb) file implements the complete solution in a single notebook.  
 
-Simply run this all cells in this notebook to replicate
+Simply run all cells in this notebook to replicate the complete solution from a single notebook file.
 
 ### Replicate steps for orchestration
-In order to implement batch processing, I implemented these steps in separate parts and containerised using docker
+In order to implement batch processing, I implemented these steps in separate parts, containerised them using docker
 and orchestrated the workflow using Airflow.
 
-The orchestration was implemented by running Airflow in docker instead of running airflow locally
+The orchestration was implemented by running Airflow in Docker instead of running airflow locally.
 
 1. Install Docker on your machine by following the [link](https://docs.docker.com/engine/install/) (First check your system compatibility and requirements)  
 2. Install Docker compose by following the [link](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04)  
