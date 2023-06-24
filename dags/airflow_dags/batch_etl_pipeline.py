@@ -19,6 +19,8 @@ from scripts.load_transformation_to_s3 import download_transformed, upload_trans
 
 load_dotenv()
 
+### Uncomment these lines to set and use airflow Variables instead
+
 # driver=Variable.get('POSTGRES_DRIVER')
 # host=Variable.get('POSTGRES_HOST')
 # port=Variable.get('POSTGRES_PORT')
@@ -73,7 +75,7 @@ default_args={
 ETL_dag = DAG(dag_id='ETL_batch_pipeline', 
                 default_args=default_args,
                 description='ETL Pipeline to pull from s3, load to postgres staging, transform staging data, pull transformed data and load transformed data to s3',
-                schedule="*/10 * * * *",
+                schedule="0 9,17 * * *",
                 start_date=days_ago(1),
                 catchup=False,
                 tags=['ETL', 'BATCH', 'Data2Bots'],
