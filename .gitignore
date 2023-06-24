@@ -1,0 +1,7 @@
+./cleanup
+.venv/
+.ipynb_checkpoints/
+./data
+./logs
+./plugins
+./transformed
