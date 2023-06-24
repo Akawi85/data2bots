@@ -20,6 +20,6 @@ The orchestration was implemented by running Airflow in docker instead of runnin
 
 ### Areas of improvements
 
-Some additional improvements can be added. For instance, I am currently working on a notebook that implement the solution using pyspark which is a distributed computing framework. You can find my progress so far on this in the [`cleanup_spark`]() directory which contains a [`cleanup_spark`]() notebook of the solution. This is helpful when the amount of data grows up so large that it may require running the ETL jobs on a cluster of computers in order to achieve optimal efficiency.
+Some additional improvements can be added. For instance, I am currently working on a notebook that implement the solution using pyspark which is a distributed computing framework. You can find my progress so far on this in the [`cleanup_spark`](https://github.com/Akawi85/data2bots/tree/main/cleanup_spark) directory which contains a [`cleanup_spark`](https://github.com/Akawi85/data2bots/blob/main/cleanup_spark/cleanup_spark.ipynb) notebook of the solution. This is helpful when the amount of data grows up so large that it may require running the ETL jobs on a cluster of computers in order to achieve optimal efficiency.
 
 This can also be orchestrated to have the spark jobs run on Google dataproc or AWS EMR for optimal scalability
