@@ -10,6 +10,8 @@ and orchestrated the workflow using Airflow.
 
 The orchestration was implemented by running Airflow in Docker instead of running airflow locally.
 
+##### Steps 
+
 1. Install Docker on your machine by following the [link](https://docs.docker.com/engine/install/) (First check your system compatibility and requirements)  
 2. Install Docker compose by following the [link](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04)  
 3. Clone this repo
