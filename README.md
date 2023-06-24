@@ -15,7 +15,7 @@ The orchestration was implemented by running Airflow in Docker instead of runnin
 1. Install Docker on your machine by following the [link](https://docs.docker.com/engine/install/) (First check your system compatibility and requirements)  
 2. Install Docker compose by following the [link](https://www.digitalocean.com/community/tutorials/how-to-install-and-use-docker-compose-on-ubuntu-20-04)  
 3. Clone this repo
-4. `cd` into the repo and run the command `docker compose up`
+4. `cd` into the downloaded folder and run the command `docker compose up`
 5. This spins up Airflow in docker, installs all the necessary dependencies and generates a link to the Airflow UI
 6. Optionally, you can remove the environment variable that was set explicitly and rather set them in the UI by following instructions on this [link](https://airflow.apache.org/docs/apache-airflow/stable/howto/variable.html) . This ensures that the credentials are safe if this were to be a public repository  
 7. Unpause the DAG and the entire ETL steps are executed in sequential steps with a schedule of 9AM and 5PM everyday
