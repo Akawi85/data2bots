@@ -81,6 +81,7 @@ ETL_dag = DAG(dag_id='ETL_batch_pipeline',
 task_1 = PythonOperator(
     task_id='download_raw',
     python_callable=download_raw,
+    op_args=[bucket_name, s3_object],
     dag=ETL_dag,
 )
 
