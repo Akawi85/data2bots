@@ -8,7 +8,7 @@ Simply run all cells in this notebook to replicate the complete solution from a 
 In order to implement batch processing, I implemented these steps in separate parts, containerised them using docker
 and orchestrated the workflow using Airflow.
 
-The orchestration was implemented by running Airflow in Docker instead of running airflow locally.
+The orchestration was implemented by running Airflow in Docker instead of running airflow locally. This is to ensure that the code works the same regardless of the operating system it is running on. You only need to have docker and docker compose installed and configured correctly.
 
 ##### Steps 
 
