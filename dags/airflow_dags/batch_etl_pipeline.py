@@ -1,6 +1,5 @@
 from airflow.models import DAG
 from airflow.operators.python import PythonOperator
-from airflow.operators.bash_operator import BashOperator
 from airflow.utils.dates import days_ago
 from airflow.models import Variable
 from sqlalchemy import create_engine
@@ -12,6 +11,7 @@ from datetime import timedelta
 import sys
 import os
 sys.path.insert(0,os.path.abspath(os.path.dirname(__file__)))
+from scripts.download_from_s3 import download_raw
 from scripts.load_to_postgres_staging import write_raw
 from scripts.execute_transformation_scripts import execute_transform
 from scripts.load_transformation_to_s3 import download_transformed, upload_transformed_to_s3
@@ -78,10 +78,9 @@ ETL_dag = DAG(dag_id='ETL_batch_pipeline',
                 tags=['ETL', 'BATCH', 'Data2Bots'],
     )
 
-
-task_1 = BashOperator(
+task_1 = PythonOperator(
     task_id='download_raw',
-    bash_command = "python3 /opt/airflow/dags/scripts/download_from_s3.py",
+    python_callable=download_raw,
     dag=ETL_dag,
 )
 
@@ -98,7 +97,6 @@ task_3 = PythonOperator(
     op_args = [cursor, analytics_schema],
     dag=ETL_dag,
 )
-
 
 task_4 = PythonOperator(
     task_id='download_transformed_data',

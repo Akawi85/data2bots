@@ -18,7 +18,10 @@ The orchestration was implemented by running Airflow in Docker instead of runnin
 4. `cd` into the downloaded folder and run the command `docker compose up`
 5. This spins up Airflow in docker, installs all the necessary dependencies and generates a link to the Airflow UI
 6. Optionally, you can remove the environment variable that was set explicitly in the [batch_etl_pipeline](https://github.com/Akawi85/data2bots/blob/main/dags/airflow_dags/batch_etl_pipeline.py) DAG and rather set them in the UI by following instructions in this [link](https://airflow.apache.org/docs/apache-airflow/stable/howto/variable.html) . This ensures that the credentials are safe if this were to be a public repository  
-7. Unpause the DAG and the entire ETL steps are executed in sequential steps with a schedule of 9AM and 5PM everyday
+7. Input the Airflow login details as:  
+  **Username:** `airflow`   
+  **Password:** `airflow`
+8. Unpause the DAG and the entire ETL steps are executed in sequential steps with a schedule of 9AM and 5PM everyday
 
 ##### Image of Successful DAG Run
 
