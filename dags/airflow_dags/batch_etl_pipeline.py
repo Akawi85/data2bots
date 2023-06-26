@@ -1,8 +1,8 @@
 from airflow.models import DAG
 from airflow.operators.python import PythonOperator
+from airflow.operators.bash_operator import BashOperator
 from airflow.utils.dates import days_ago
 from airflow.models import Variable
-from dotenv import load_dotenv
 from sqlalchemy import create_engine
 import psycopg2
 import boto3
@@ -12,14 +12,11 @@ from datetime import timedelta
 import sys
 import os
 sys.path.insert(0,os.path.abspath(os.path.dirname(__file__)))
-from scripts.download_from_s3 import download_raw
 from scripts.load_to_postgres_staging import write_raw
 from scripts.execute_transformation_scripts import execute_transform
 from scripts.load_transformation_to_s3 import download_transformed, upload_transformed_to_s3
 
-load_dotenv()
-
-### Uncomment these lines to set and use airflow Variables instead
+### Uncomment these lines to set and use airflow Variables to store sensitive credential instead
 
 # driver=Variable.get('POSTGRES_DRIVER')
 # host=Variable.get('POSTGRES_HOST')
@@ -57,7 +54,7 @@ connection.autocommit = True
 cursor = connection.cursor()
 print('Cursor object created')
 
-# bucket_name = "d2b-internal-assessment-bucket"
+bucket_name = "d2b-internal-assessment-bucket"
 s3_object = boto3.client('s3', config=Config(signature_version=UNSIGNED))
 response = s3_object.list_objects(Bucket=bucket_name, Prefix="orders_data")
 
@@ -81,10 +78,10 @@ ETL_dag = DAG(dag_id='ETL_batch_pipeline',
                 tags=['ETL', 'BATCH', 'Data2Bots'],
     )
 
-task_1 = PythonOperator(
-    task_id='download_from_s3',
-    python_callable = download_raw,
-    op_args = [bucket_name, s3_object],
+
+task_1 = BashOperator(
+    task_id='download_raw',
+    bash_command = "python3 /opt/airflow/dags/scripts/download_from_s3.py",
     dag=ETL_dag,
 )
 
@@ -102,12 +99,6 @@ task_3 = PythonOperator(
     dag=ETL_dag,
 )
 
-task_3 = PythonOperator(
-    task_id='execute_transformation_scripts',
-    python_callable = execute_transform,
-    op_args = [cursor, analytics_schema],
-    dag=ETL_dag,
-)
 
 task_4 = PythonOperator(
     task_id='download_transformed_data',

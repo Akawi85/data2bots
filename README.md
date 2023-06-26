@@ -17,7 +17,7 @@ The orchestration was implemented by running Airflow in Docker instead of runnin
 3. Clone this repo
 4. `cd` into the downloaded folder and run the command `docker compose up`
 5. This spins up Airflow in docker, installs all the necessary dependencies and generates a link to the Airflow UI
-6. Optionally, you can remove the environment variable that was set explicitly and rather set them in the UI by following instructions on this [link](https://airflow.apache.org/docs/apache-airflow/stable/howto/variable.html) . This ensures that the credentials are safe if this were to be a public repository  
+6. Optionally, you can remove the environment variable that was set explicitly in the [batch_etl_pipeline](https://github.com/Akawi85/data2bots/blob/main/dags/airflow_dags/batch_etl_pipeline.py) DAG and rather set them in the UI by following instructions in this [link](https://airflow.apache.org/docs/apache-airflow/stable/howto/variable.html) . This ensures that the credentials are safe if this were to be a public repository  
 7. Unpause the DAG and the entire ETL steps are executed in sequential steps with a schedule of 9AM and 5PM everyday
 
 ### Areas of improvements
@@ -25,3 +25,9 @@ The orchestration was implemented by running Airflow in Docker instead of runnin
 Some additional improvements can be added. For instance, I am currently working on a notebook that implement the solution using pyspark which is a distributed computing framework. You can find my progress so far on this in the [`cleanup_spark`](https://github.com/Akawi85/data2bots/tree/main/cleanup_spark) directory which contains a [`cleanup_spark`](https://github.com/Akawi85/data2bots/blob/main/cleanup_spark/cleanup_spark.ipynb) notebook of the solution. This is helpful when the amount of data grows up so large that it may require running the ETL jobs on a cluster of computers in order to achieve optimal efficiency.
 
 This can also be orchestrated to have the spark jobs run on Google dataproc or AWS EMR for optimal scalability
+
+### Note
+
+I am soliciting for some pardon due to my late submission. This was not without a cause as I was delayed 6 days before I could get access to the database credentials. Attached is the email trail that shows when I received the assignment instructions, the mails I sent trying to request for the database credentials and the day I got a response of the database credential. 
+
+Although I made my initial submissions quite on time and before the deadline, I realised there were some bugs in my code that needed to be fixed in order to make the code align to the instructions. And also this section of the README had to be updated. All these culminated to my late submission for which I seek a recourse and pardon.
