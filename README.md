@@ -20,6 +20,8 @@ The orchestration was implemented by running Airflow in Docker instead of runnin
 6. Optionally, you can remove the environment variable that was set explicitly in the [batch_etl_pipeline](https://github.com/Akawi85/data2bots/blob/main/dags/airflow_dags/batch_etl_pipeline.py) DAG and rather set them in the UI by following instructions in this [link](https://airflow.apache.org/docs/apache-airflow/stable/howto/variable.html) . This ensures that the credentials are safe if this were to be a public repository  
 7. Unpause the DAG and the entire ETL steps are executed in sequential steps with a schedule of 9AM and 5PM everyday
 
+##### Image of Successful DAG Run
+
 ![Image of successful ETL DAG run](https://github.com/Akawi85/data2bots/blob/main/images/Screenshot%202023-06-26%20at%2019.45.53.png)
 
 ### Areas of improvements
