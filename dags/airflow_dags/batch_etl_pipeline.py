@@ -18,25 +18,15 @@ from scripts.load_transformation_to_s3 import download_transformed, upload_trans
 
 ### Uncomment these lines to set and use airflow Variables to store sensitive credential instead
 
-# driver=Variable.get('POSTGRES_DRIVER')
-# host=Variable.get('POSTGRES_HOST')
-# port=Variable.get('POSTGRES_PORT')
-# database=Variable.get('POSTGRES_DATABASE')
-# username=Variable.get('POSTGRES_USERNAME')
-# password=Variable.get('POSTGRES_PASSWORD')
-# staging_schema=Variable.get('POSTGRES_STAGING_SCHEMA')
-# analytics_schema=Variable.get('POSTGRES_ANALYTICS_SCHEMA')
-# bucket_name=Variable.get('S3_BUCKET')
-
-driver='postgresql+psycopg2'
-host='34.89.230.185'
-port=5432
-database='d2b_accessment'
-username='ifeaakaw4441'
-password='OcCwxlTINF'
-staging_schema='ifeaakaw4441_staging'
-analytics_schema='ifeaakaw4441_analytics'
-bucket_name='d2b-internal-assessment-bucket'
+driver=Variable.get('POSTGRES_DRIVER')
+host=Variable.get('POSTGRES_HOST')
+port=Variable.get('POSTGRES_PORT')
+database=Variable.get('POSTGRES_DATABASE')
+username=Variable.get('POSTGRES_USERNAME')
+password=Variable.get('POSTGRES_PASSWORD')
+staging_schema=Variable.get('POSTGRES_STAGING_SCHEMA')
+analytics_schema=Variable.get('POSTGRES_ANALYTICS_SCHEMA')
+bucket_name=Variable.get('S3_BUCKET')
 
 # create engine that connects to the database
 engine = create_engine(f'{driver}://{username}:{password}@{host}:{port}/{database}')
