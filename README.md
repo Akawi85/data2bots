@@ -32,24 +32,3 @@ The orchestration was implemented by running Airflow in Docker instead of runnin
 Some additional improvements can be added. For instance, I am currently working on a notebook that implement the solution using pyspark which is a distributed computing framework. You can find my progress so far on this in the [`cleanup_spark`](https://github.com/Akawi85/data2bots/tree/main/cleanup_spark) directory which contains a [`cleanup_spark`](https://github.com/Akawi85/data2bots/blob/main/cleanup_spark/cleanup_spark.ipynb) notebook of the solution. This is helpful when the amount of data grows up so large that it may require running the ETL jobs on a cluster of computers in order to achieve optimal efficiency.
 
 This can also be orchestrated to have the spark jobs run on Google dataproc or AWS EMR for optimal scalability
-
-### Note
-
-I am soliciting for some pardon due to my late submission. This was not without a cause as I was delayed 6 days before I could get access to the database credentials. Attached is the email trail that shows when I received the assignment instructions, the mails I sent trying to request for the database credentials and the day I got a response of the database credential. 
-
-##### When I received a mail detailing the assessment Instructions
-
-![When I received the Assessment Instructions](https://github.com/Akawi85/data2bots/blob/main/images/Screenshot%202023-06-26%20at%2021.12.29.png) . 
-
-
-##### When I requested Access to the database credentials
-
-![When I requested database credentials](https://github.com/Akawi85/data2bots/blob/main/images/Screenshot%202023-06-26%20at%2021.13.22.png) . 
-
-
-##### When I finally got the database credentials
-
-![When I received the credentials](https://github.com/Akawi85/data2bots/blob/main/images/Screenshot%202023-06-26%20at%2021.13.55.png) . 
-
-
-Although I made my initial submissions quite on time and before the deadline, I realised there were some bugs in my code that needed to be fixed in order to make the code align to the laid out instructions. And also this section of the README had to be updated. All these culminated to my late submission for which I seek a recourse and pardon.
